@@ -21,7 +21,7 @@ const limiter = rateLimit({
 app.use('/contact', limiter);
 
 // Email transporter configuration
-const transporter = nodemailer.createTransporter({
+const transporter = nodemailer.createTransport({
     host: 'smtp.protonmail.ch', // Updated host
     port: 587,
     secure: false, // Use STARTTLS
