@@ -48,6 +48,14 @@ app.get('/', (req, res) => {
     });
 });
 
+// Keep-alive ping endpoint
+app.get('/ping', (req, res) => {
+    res.json({ 
+        status: 'pong',
+        timestamp: new Date().toISOString()
+    });
+});
+
 // Piano lessons contact form endpoint
 app.post('/contact', async (req, res) => {
     console.log('🎹 Piano lesson inquiry received:', req.body);
