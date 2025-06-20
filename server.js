@@ -22,7 +22,7 @@ app.use('/contact', limiter);
 
 // Email transporter configuration
 const transporter = nodemailer.createTransport({
-    host: 'smtp.protonmail.ch', // Updated host
+    host: 'smtp.protonmail.ch',
     port: 587,
     secure: false, // Use STARTTLS
     auth: {
@@ -222,7 +222,7 @@ app.post('/contact', async (req, res) => {
         // Send email
         const mailOptions = {
             from: process.env.EMAIL_USER,
-            to: process.env.PIANO_EMAIL
+            to: process.env.PIANO_EMAIL || 'info@pianocorner.studio',
             subject: emailSubject,
             html: emailHtml,
             replyTo: email
